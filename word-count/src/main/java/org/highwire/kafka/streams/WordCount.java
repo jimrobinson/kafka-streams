@@ -70,11 +70,11 @@ public class WordCount {
 
 		// convert the input values into a count of "words"
 		final KTable<String,Long> wordCounts = inputStream 
-			.mapValues( value -> value.toLowerCase() )						// lowercase values
+			.mapValues( value -> value.toLowerCase() )			// lowercase values
 			.flatMapValues( value -> Arrays.asList(value.split("\\W+")) )	// split on non-word chars
-			.selectKey( (key, value) -> value )								// map values to keys
-			.groupByKey()													// group keys together
-			.count("Counts");												// count keys
+			.selectKey( (key, value) -> value )				// map values to keys
+			.groupByKey()							// group keys together
+			.count("Counts");						// count keys
 
 		// write output to outputTopic table
 		wordCounts.to(Serdes.String(), Serdes.Long(), outTopic);
