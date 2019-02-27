@@ -25,7 +25,7 @@ import org.apache.kafka.streams.kstream.KTable;
 public class WordCount {
 
 	/**
-	 * properties is a simple utility class that returns a java.util.Properties
+	 * properties is a simple utility function to return a java.util.Properties
 	 * configured with various StreamsConfig and ConsumerConfig key/value pairs.
 	 *
 	 * @param brokers value for StreamsConfig.BOOTSTRAP_SERVERS_CONFIG
